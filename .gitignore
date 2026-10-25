@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+outputs/
+*.duckdb
+*.duckdb.wal
+.streamlit/secrets.toml
+.env

@@ -1,0 +1,21 @@
+flowchart LR
+    subgraph Sources
+        GA4[GA4<br/>web sessions]
+        SF[Salesforce<br/>customers, orders]
+        MOE[MoEngage<br/>campaign engagement]
+        ADS[Ad platforms<br/>Google, Meta, affiliate, influencer spend]
+    end
+    GA4 -- native BigQuery export --> RAW
+    SF & MOE & ADS --> ING[Cloud Run ingest jobs]
+    ING -- daily files --> GCS[(Cloud Storage<br/>raw/source/dt=YYYY-MM-DD)]
+    GCS -- load --> RAW
+    subgraph BigQuery [BigQuery + dbt]
+        RAW[(raw)] --> STG[(staging + DQ tests)] -- tests pass --> MART[(marts<br/>mart_channel_kpis<br/>mart_channel_monthly<br/>dq_log)]
+    end
+    STG -. warn .-> Q[(quarantine)]
+    MART -- read-only parameterised SQL --> APP[Streamlit on Cloud Run<br/>dashboard + question box]
+    APP <-- question / get_metric tool call --> LLM[Claude tool use<br/>enums only, no SQL, no numbers]
+    CMO((CMO)) <--> APP
+    SCH[Cloud Scheduler → Workflows<br/>06:00 IST] -. triggers .-> ING
+    SEC[Secret Manager] -. API keys .-> ING
+    MART -. error / stale .-> MON[Cloud Monitoring → Slack + email]
