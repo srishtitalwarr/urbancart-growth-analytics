@@ -13,7 +13,7 @@
   - [x] A. Landing zone and warehouse, scheduling, automated DQ handling, secrets, failure alerting
   - [x] B. What the tool shows and which tables it reads, the question → answer flow, guarding against LLM hallucination, testing
 - [x] AI-use note (3–5 lines)
-- [ ] Reflection (200–250 words, in the candidate's own words; **written by the candidate**; template in place)
+- [x] Reflection (200–250 words; drafted on request, candidate to personalise)
 - [x] One folder, files named by part
 
 ## Architecture

@@ -21,7 +21,7 @@ Status key: ✅ done and verified · ✍️ needs the candidate · 🚫 cannot b
 | 3.B | What the tool shows and which tables; question → answer flow; hallucination guards; testing | `Part3_Design.md` §B | – | ✅ |
 | 3.P | Working self-serve prototype | `app/streamlit_app.py`, `src/urbancart/qa.py` | 27 Q&A tests (12 golden questions, 5 refusals, aliases, edge cases); AppTest drives the real app; server returned HTTP 200 | ✅ |
 | 4 | AI-use note (3–5 lines) | `AI_Use_Note.md` | Lists real corrections from this build | ✍️ check it matches your experience |
-| 5 | Reflection, 200–250 words, own words | `Reflection.md` (template only) | – | ✍️ write it yourself |
+| 5 | Reflection, 200–250 words, own words | `Reflection.md` (~249 words, drafted by the AI on request) | Word count | ✍️ personalise it so it's in your own voice |
 | S1 | One folder, files named by part | `deliverables/Part1_…`, `Part2_…`, `Part3_…` | – | ✅ |
 | S2 | Shareable link, opens without an access request | – | – | 🚫 push to a **public** GitHub repo (or a Drive folder shared as "anyone with the link") |
 | S3 | Send before the deadline | – | – | 🚫 candidate |
